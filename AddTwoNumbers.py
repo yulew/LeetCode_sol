@@ -60,3 +60,7 @@ def addTwoNumbers(self, l1, l2):
         n.next = ListNode(val)
         n = n.next
     return root.next
+
+
+def divmod(a, b):
+    return(a // b, a % b)
