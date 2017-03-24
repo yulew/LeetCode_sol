@@ -5,25 +5,19 @@ class Solution(object):
         :rtype: int
         """
         store=""
-        i=-1
-        
-        while i<len(s)-1:
-            
-            store1=""
-            while i<len(s)-1:
-                i+=1                        
-                if s[i] not in store1:
-                    store1+=s[i]
-                    if i==len(s)-1 and len(store)<=len(store1):
-                        #print(store1)
-                        return len(store1)
-                    
+        store_temp=""
+        for i in s:
+            if i not in store_temp:
+                store_temp+=i
+            else:
+                ind=store_temp.index(i)
+                if len(store_temp)>len(store):
+                    store=store_temp
+                if ind-len(store_temp)+1!=0:
+                    store_temp=""+store_temp[ind-len(store_temp)+1:]+i
                 else:
-                    m=store1.index(s[i])#give me the position
-                    
-                    if len(store)<len(store1):
-                        store=store1
-                    i=m#minus the position
-                    break
-            
+                    store_temp=""+i
+        if len(store_temp)>len(store):
+            store=store_temp
+        print(store)
         return len(store)
