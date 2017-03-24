@@ -19,5 +19,4 @@ class Solution(object):
                     store_temp=""+i
         if len(store_temp)>len(store):
             store=store_temp
-        print(store)
         return len(store)
